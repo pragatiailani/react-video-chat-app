@@ -14,6 +14,7 @@ class PeerService {
         }
     }
 
+    // GENERATE ANSWER FOR AN INCOMING CALL/WEBRTC OFFER
     async getAnswer(offer) {
         if (this.peer) {
             await this.peer.setRemoteDescription(offer);
@@ -23,6 +24,7 @@ class PeerService {
         }
     }
 
+    // SET LOCAL DESCRIOTION AFTER RECEIVING AN ANSWER
     async setLocalDescription(ans) {
         if (this.peer) {
             await this.peer.setRemoteDescription(
@@ -31,6 +33,7 @@ class PeerService {
         }
     }
 
+    // GENERATE AN OFFER TO INITIATE A WEBRTC CONNECTION
     async getOffer() {
         if (this.peer) {
             const offer = await this.peer.createOffer();
